@@ -12,7 +12,13 @@ variable "gcpRegion" {
 variable "gcpZone" {
   description = "default zone"
 }
-
+variable "gcp_service_accounts" {
+  type = "map"
+  default = {
+      storage = "default-compute@developer.gserviceaccount.com"
+      compute = "default-compute@developer.gserviceaccount.com"
+    }
+}
 # admin 
 variable "adminSrcAddr" {
   description = "admin source range in CIDR x.x.x.x/24"
@@ -28,7 +34,7 @@ variable "gceSshPubKeyFile" {
   description = "ssh public key for instances"
 }
 
-variable "sa-file" {
+variable "serviceAccountFile" {
   description = "cloud service account json"
 }
 

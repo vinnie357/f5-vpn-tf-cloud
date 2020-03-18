@@ -1,7 +1,7 @@
 # provider
 provider "google" {
   #credentials = "${file("../${path.root}/creds/gcp/${var.GCP_SA_FILE_NAME}.json")}"
-  credentials = "${var.sa-file}"
+  credentials = "${var.serviceAccountFile}"
   project     = "${var.gcpProjectId}"
   region      = "${var.gcpRegion}"
   zone        = "${var.gcpZone}"
