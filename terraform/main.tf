@@ -134,7 +134,7 @@ module "vpn" {
   int_subnet = "${google_compute_subnetwork.vpc_network_int_sub}"
   ext_subnet = "${google_compute_subnetwork.vpc_network_ext_sub}"
   projectPrefix = "${var.projectPrefix}"
-  service_accounts = "${var.service_accounts}"
+  service_accounts = "${var.gcpServiceAccounts}"
   buildSuffix = "-${random_pet.buildSuffix.id}"
   vm_count = "${var.instanceCount}"
 }

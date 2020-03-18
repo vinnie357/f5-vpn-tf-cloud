@@ -12,7 +12,7 @@ variable "gcpRegion" {
 variable "gcpZone" {
   description = "default zone"
 }
-variable "gcp_service_accounts" {
+variable "gcpServiceAccounts" {
   type = "map"
   default = {
       storage = "default-compute@developer.gserviceaccount.com"
