@@ -57,7 +57,7 @@ resource "google_compute_subnetwork" "vpc_network_ext_sub" {
 }
 # firewall
 resource "google_compute_firewall" "default-allow-internal-mgmt" {
-  name    = "${var.projectPrefix}default-allow-internal-mgmt-firewall-${random_pet.buildSuffix.id}"
+  name    = "${var.projectPrefix}default-allow-internal-mgmt-${random_pet.buildSuffix.id}"
   network = "${google_compute_network.vpc_network_mgmt.name}"
 
   allow {
@@ -77,7 +77,7 @@ resource "google_compute_firewall" "default-allow-internal-mgmt" {
   source_ranges = ["10.0.10.0/24"]
 }
 resource "google_compute_firewall" "default-allow-internal-ext" {
-  name    = "${var.projectPrefix}default-allow-internal-ext-firewall-${random_pet.buildSuffix.id}"
+  name    = "${var.projectPrefix}default-allow-internal-ext-${random_pet.buildSuffix.id}"
   network = "${google_compute_network.vpc_network_ext.name}"
 
   allow {
@@ -97,7 +97,7 @@ resource "google_compute_firewall" "default-allow-internal-ext" {
   source_ranges = ["10.0.30.0/24"]
 }
 resource "google_compute_firewall" "default-allow-internal-int" {
-  name    = "${var.projectPrefix}default-allow-internal-int-firewall-${random_pet.buildSuffix.id}"
+  name    = "${var.projectPrefix}default-allow-internal-int-${random_pet.buildSuffix.id}"
   network = "${google_compute_network.vpc_network_int.name}"
 
   allow {

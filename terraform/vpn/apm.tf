@@ -36,7 +36,7 @@ resource "google_compute_firewall" "app" {
   }
 
   allow {
-    protocol = ""
+    protocol = "udp"
     ports    = ["4433"]
   }
 
