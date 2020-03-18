@@ -44,7 +44,7 @@ variable "bigipImage" {
 
 variable "bigipMachineType" {
     description = "bigip gce machine type/size"
-    default = "n1-standard-4"
+    default = "n1-standard-8"
 }
 
 variable "vm_count" {
