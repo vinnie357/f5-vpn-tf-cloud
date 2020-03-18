@@ -28,7 +28,9 @@ variable "ext_subnet" {
 variable "projectPrefix" {
   description = "prefix for resources"
 }
-
+variable "buildSuffix" {
+  description = "resource suffix"
+}
 variable "name" {
   description = "device name"
   default = "afm"
