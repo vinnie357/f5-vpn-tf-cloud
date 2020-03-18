@@ -2,14 +2,14 @@
 variable "projectPrefix" {
     description = "prefix for resources"
 }
-variable "GCP_PROJECT_ID" {
+variable "gcpProjectId" {
   description = "project where resources are created"
 }
 # env
-variable "GCP_REGION" {
+variable "gcpRegion" {
   description = "default region"
 }
-variable "GCP_ZONE" {
+variable "gcpZone" {
   description = "default zone"
 }
 
@@ -24,7 +24,7 @@ variable "adminAccount" {
 variable "adminPass" {
   description = "admin account password"
 }
-variable "gce_ssh_pub_key_file" {
+variable "gceSshPubKeyFile" {
   description = "ssh public key for instances"
 }
 

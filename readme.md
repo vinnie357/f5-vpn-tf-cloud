@@ -11,7 +11,7 @@ link terraform cloud to the repo for githooks
 login to gcp and issue a service account with permissions to your project
 
 # set project variables for terraform cloud project
-!!! mark items as sensitive for write only access
+! mark items as sensitive for write only access
 - serviceAccountFile
     - your json service account [ sensitive]
 - gcpProjectId
@@ -32,4 +32,5 @@ login to gcp and issue a service account with permissions to your project
     - 1 for this demo
 - gceSshPubKeyFile [ sensitive]
     - contents of the admin ssh public key file 
+#
 

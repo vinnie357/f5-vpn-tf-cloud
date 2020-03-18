@@ -2,9 +2,9 @@
 provider "google" {
   #credentials = "${file("../${path.root}/creds/gcp/${var.GCP_SA_FILE_NAME}.json")}"
   credentials = "${var.sa-file}"
-  project     = "${var.GCP_PROJECT_ID}"
-  region      = "${var.GCP_REGION}"
-  zone        = "${var.GCP_ZONE}"
+  project     = "${var.gcpProjectId}"
+  region      = "${var.gcpRegion}"
+  zone        = "${var.gcpZone}"
 }
 # project
 resource "random_pet" "buildSuffix" {
@@ -123,7 +123,7 @@ module "vpn" {
   #====================#
   # vpn settings  #
   #====================#
-  gce_ssh_pub_key_file = "${var.sshKeyPath}"
+  gce_ssh_pub_key_file = "${var.gceSshPubKeyFile}"
   adminSrcAddr = "${var.adminSrcAddr}"
   adminPass = "${var.adminPass}"
   adminAccountName = "${var.adminAccount}"
@@ -136,4 +136,5 @@ module "vpn" {
   projectPrefix = "${var.projectPrefix}"
   service_accounts = "${var.service_accounts}"
   buildSuffix = "-${random_pet.buildSuffix.id}"
+  vm_count = "${var.instanceCount}"
 }
