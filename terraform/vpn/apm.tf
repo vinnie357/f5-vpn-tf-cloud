@@ -45,7 +45,7 @@ resource "google_compute_firewall" "app" {
 }
 # Setup Onboarding scripts
 data "template_file" "vm_onboard" {
-  template = "${file("${path.root}/gcp/templates/onboard_v2.tpl")}"
+  template = "${file("${path.root}/vpn/templates/onboard_v2.tpl")}"
 
   vars = {
     uname        	      = "${var.adminAccountName}"
@@ -74,7 +74,7 @@ data "template_file" "vm_onboard" {
 }
 #Declarative Onboarding template 01
 data "template_file" "vm01_do_json" {
-  template = "${file("${path.root}/gcp/templates/${var.vm_count >= 2 ? "cluster" : "standalone"}.json")}"
+  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "cluster" : "standalone"}.json")}"
 
   vars = {
     #Uncomment the following line for BYOL
@@ -97,7 +97,7 @@ data "template_file" "vm01_do_json" {
 }
 #Declarative Onboarding template 02
 data "template_file" "vm02_do_json" {
-  template = "${file("${path.root}/gcp/templates/${var.vm_count >= 2 ? "cluster" : "standalone"}.json")}"
+  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "cluster" : "standalone"}.json")}"
 
   vars = {
     #Uncomment the following line for BYOL
@@ -123,7 +123,7 @@ data "template_file" "vm02_do_json" {
 
 #application services 3 template
 data "template_file" "as3_json" {
-  template = "${file("${path.root}/gcp/templates/scca.json")}"
+  template = "${file("${path.root}/vpn/templates/scca.json")}"
   vars ={
       uuid = "${uuid()}"
       #virtualAddressExternal ="${google_compute_forwarding_rule.default.ip_address}"
