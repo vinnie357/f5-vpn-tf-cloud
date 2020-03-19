@@ -123,7 +123,7 @@ data "template_file" "vm02_do_json" {
 
 #application services 3 template
 data "template_file" "as3_json" {
-  template = "${file("${path.root}/vpn/templates/scca.json")}"
+  template = "${file("${path.root}/vpn/templates/vpn.json")}"
   vars ={
       uuid = "${uuid()}"
       #virtualAddressExternal ="${google_compute_forwarding_rule.default.ip_address}"

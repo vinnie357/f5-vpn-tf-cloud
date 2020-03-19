@@ -766,6 +766,7 @@ token=\$(curl -s -f --retry 20 'http://metadata.google.internal/computeMetadata/
 virtualIp=\$(curl -s -f --retry 20 "\$virtualUrl" -H "Metadata-Flavor: Google" -H "Authorization: Bearer \$token" )
 sdToken=\$(echo "\$token" | base64)
 sed -i "s/-external-virtual-address-/\$virtualIp/g" /config/as3.json
+sed -i "s/-internal-self-address-/$INT3ADDRESS/g" /config/as3.json
 #sed -i "s/-external-virtual-address-/$INT2ADDRESS/g" /config/as3.json
 sed -i "s/-sd-sa-token-b64-/\$token/g" /config/as3.json
 sed -i "s/-external-self-/$INT2ADDRESS/g" /config/as3.json
