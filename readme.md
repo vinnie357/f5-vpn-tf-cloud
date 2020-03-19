@@ -1,5 +1,5 @@
 # deploy f5 SSL VPN in GCP on demand
-
+![vpn](images/vpn.PNG "vpn ready to configure")
 # terraform cloud
 terraform cloud account
 # create project in terraform cloud
@@ -33,4 +33,5 @@ login to gcp and issue a service account with permissions to your project
 - gceSshPubKeyFile [ sensitive]
     - contents of the admin ssh public key file 
 #
-
+# queue a run of the project
+![vpn](images/vpn_tf_cloud.PNG "vpn ready to configure")
