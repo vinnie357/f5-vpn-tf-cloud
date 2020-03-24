@@ -2,7 +2,7 @@
     "schemaVersion": "1.9.0",
     "class": "Device",
     "async": true,
-    "label": "Basic onboarding",
+    "label": "Basic onboarding byol",
     "Common": {
         "class": "Tenant",
         "hostname": "${local_host}.example.com",
