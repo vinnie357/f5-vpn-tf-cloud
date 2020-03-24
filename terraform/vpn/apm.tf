@@ -140,7 +140,7 @@ resource "google_compute_instance" "vm_instance" {
   tags = ["allow-health-checks"]
   boot_disk {
     initialize_params {
-      image = "${var.bigipImage}"
+      image = "${var.customImage != "" ? "${var.customImage}" : "${var.bigipImage}"}"
       size = "128"
     }
   }

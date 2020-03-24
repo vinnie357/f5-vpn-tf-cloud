@@ -46,3 +46,8 @@ variable "appName" {
   description = "app name"
   default = "vpn"
 }
+# Custom image
+variable "customImage" {
+  description = "custom build image name"
+  default = ""
+}

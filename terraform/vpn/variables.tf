@@ -35,7 +35,11 @@ variable "name" {
   description = "device name"
   default = "afm"
 }
-
+# Custom image
+variable "customImage" {
+  description = "custom build image name"
+  default = ""
+}
 variable "bigipImage" {
  description = " bigip gce image name"
  #default = "projects/f5-7626-networks-public/global/images/f5-bigip-15-0-1-1-0-0-3-byol-all-modules-2boot-loc-191118"

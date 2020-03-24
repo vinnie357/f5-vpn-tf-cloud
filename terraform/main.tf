@@ -137,4 +137,5 @@ module "vpn" {
   service_accounts = "${var.gcpServiceAccounts}"
   buildSuffix = "-${random_pet.buildSuffix.id}"
   vm_count = "${var.instanceCount}"
+  customImage = "${var.customImage}"
 }
