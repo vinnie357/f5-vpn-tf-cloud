@@ -138,4 +138,5 @@ module "vpn" {
   buildSuffix = "-${random_pet.buildSuffix.id}"
   vm_count = "${var.instanceCount}"
   customImage = "${var.customImage}"
+  bigipLicense1 = "${var.bigipLicense1}"
 }

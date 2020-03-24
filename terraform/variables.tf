@@ -51,3 +51,7 @@ variable "customImage" {
   description = "custom build image name"
   default = ""
 }
+variable "bigipLicense1" {
+  description = " bigip license for BYOL"
+  default = ""
+}

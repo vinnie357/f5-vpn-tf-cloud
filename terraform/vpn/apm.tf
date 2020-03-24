@@ -74,7 +74,7 @@ data "template_file" "vm_onboard" {
 }
 #Declarative Onboarding template 01
 data "template_file" "vm01_do_json" {
-  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "cluster" : "standalone"}.json")}"
+  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "cluster" : "${var.bigipLicense1 != "" ? "standalone" : "standalone_byol"}"}.json")}"
 
   vars = {
     #Uncomment the following line for BYOL
@@ -93,6 +93,7 @@ data "template_file" "vm01_do_json" {
     timezone	    = "${var.timezone}"
     admin_user      = "${var.adminAccountName}"
     admin_password  = "${var.adminPass}"
+    bigipLicense1  = "${var.bigipLicense1}"
   }
 }
 #Declarative Onboarding template 02

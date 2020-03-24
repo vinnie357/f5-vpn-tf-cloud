@@ -45,6 +45,10 @@ variable "bigipImage" {
  #default = "projects/f5-7626-networks-public/global/images/f5-bigip-15-0-1-1-0-0-3-byol-all-modules-2boot-loc-191118"
  default = "projects/f5-7626-networks-public/global/images/f5-bigip-15-0-1-1-0-0-3-payg-best-1gbps-191118"
 }
+variable "bigipLicense1" {
+  description = " bigip license for BYOL"
+  default = ""
+}
 
 variable "bigipMachineType" {
     description = "bigip gce machine type/size"
