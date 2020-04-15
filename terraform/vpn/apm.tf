@@ -74,7 +74,7 @@ data "template_file" "vm_onboard" {
 }
 #Declarative Onboarding template 01
 data "template_file" "vm01_do_json" {
-  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "cluster" : "${var.bigipLicense1 != "" ? "standalone_byol" : "standalone"}"}.json")}"
+  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "${var.bigipLicense1 != "" ? "cluster_byol" : "cluster"}" : "${var.bigipLicense1 != "" ? "standalone_byol" : "standalone"}"}.json")}"
 
   vars = {
     #Uncomment the following line for BYOL
@@ -93,12 +93,12 @@ data "template_file" "vm01_do_json" {
     timezone	    = "${var.timezone}"
     admin_user      = "${var.adminAccountName}"
     admin_password  = "${var.adminPass}"
-    bigipLicense1  = "${var.bigipLicense1}"
+    bigipLicense  = "${var.bigipLicense1}"
   }
 }
 #Declarative Onboarding template 02
 data "template_file" "vm02_do_json" {
-  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "cluster" : "standalone"}.json")}"
+  template = "${file("${path.root}/vpn/templates/${var.vm_count >= 2 ? "${var.bigipLicense2 != "" ? "cluster_byol" : "cluster"}" : "${var.bigipLicense2 != "" ? "standalone_byol" : "standalone"}"}.json")}"
 
   vars = {
     #Uncomment the following line for BYOL
@@ -117,6 +117,7 @@ data "template_file" "vm02_do_json" {
     timezone        = "${var.timezone}"
     admin_user      = "${var.adminAccountName}"
     admin_password  = "${var.adminPass}"
+    bigipLicense  = "${var.bigipLicense2}"
   }
 }
 # as3 uuid generation
@@ -268,6 +269,20 @@ resource "null_resource" "wait" {
     interpreter = ["bash", "-c"]
   }
 }
+##
+# # revoke licenses
+# data "template_file" "revokefile" {
+#   template = "${file("${path.root}/vpn/templates/revoke.sh")}"
+#   vars ={
+#       ip = "${google_compute_instance.vm_instance.0.network_interface.1.access_config.0.nat_ip}"
+#       adminAccount = "${var.adminAccountName}"
+#   }
+# }
+# resource "local_file" "revoke_license" {
+#   content     = "${data.template_file.revokefile.rendered}"
+#   filename    = "${path.module}/revokeLicense.sh"
+# }
+##
 # gcloud compute instances describe afm-1-instance --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
 
 #output "f5vm01_mgmt_public_ip" { value = "${google_compute_instance.afm-1-instance.access_config[0].natIP}" }

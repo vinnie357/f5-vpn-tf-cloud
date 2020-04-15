@@ -139,4 +139,5 @@ module "vpn" {
   vm_count = "${var.instanceCount}"
   customImage = "${var.customImage}"
   bigipLicense1 = "${var.bigipLicense1}"
+  bigipLicense2 = "${var.bigipLicense2}"
 }

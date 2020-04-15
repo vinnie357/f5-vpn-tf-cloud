@@ -15,7 +15,7 @@
         "myLicense": {
             "class": "License",
             "licenseType": "regKey",
-            "regKey": "${bigipLicense1}"
+            "regKey": "${bigipLicense}"
         },
         "myDns": {
             "class": "DNS",

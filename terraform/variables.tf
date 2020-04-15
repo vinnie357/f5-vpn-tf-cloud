@@ -55,3 +55,7 @@ variable "bigipLicense1" {
   description = " bigip license for BYOL"
   default = ""
 }
+variable "bigipLicense2" {
+  description = " bigip license for BYOL"
+  default = ""
+}
